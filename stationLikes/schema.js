@@ -14,6 +14,7 @@ const stationLikesSchema = new mongoose.Schema(
         ref: "User",
     },
     stationId: String,
+    // networkId: String,
 },
     {
         collection: "stationLikes",

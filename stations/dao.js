@@ -5,7 +5,6 @@ export const createStation = (station) =>
 
 export const getStations = () => stationModel.find();
 
-
 export const getStationByStationId = (stationId) => stationModel.findOne({stationId});
 
 // id is a primary key (what we don't control)
