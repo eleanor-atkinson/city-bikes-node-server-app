@@ -14,6 +14,7 @@ const stationLikesSchema = new mongoose.Schema(
         ref: "User",
     },
     stationId: String,
+    dateOfLike: { type: Date, default: Date.now },
     // networkId: String,
 },
     {

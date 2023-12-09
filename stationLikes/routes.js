@@ -25,6 +25,7 @@ function StationLikesRoutes(app) {
             station = await stationDao.createStation(req.body);
         }
 
+        // station._id is the primary key
         const actualLikes = await likesDao.userLikesStation(userId, station._id, stationId);
         res.json(actualLikes);
     };
@@ -35,22 +36,21 @@ function StationLikesRoutes(app) {
         const likes = await likesDao.getLikesForUser(userId);
         res.json(likes);
     };
+
     const getLikesForStation = async(req, res) => {
         const stationId = req.params.stationId;
         const likes = await likesDao.getLikesForStation(stationId);
         res.json(likes);
     }
 
-    // get likes for station
-    app.get("/api/stations/:stationId/likes", getLikesForStation);
+        // get likes for station
+        app.get("/api/stations/:stationId/likes", getLikesForStation);
 
-    // if you give me the userId, then I will return the likes
-    app.get("/api/users/:userId/likes", getLikesForUser);
-
-    // create the like
-    app.post("/api/stations/:stationId/likes", userLikesStation);
-
+        // if you give me the userId, then I will return the likes
+        app.get("/api/users/:userId/likes", getLikesForUser);
     
+        // create the like
+        app.post("/api/stations/:stationId/likes", userLikesStation);    
 
 }
 

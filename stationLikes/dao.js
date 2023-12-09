@@ -22,3 +22,4 @@ stationLikesModel.find({user: userId}).populate("station");
 // by leaving out additional paramter (e.g. "name"), we get all fields 
 export const getLikesForStation = (stationId) =>
 stationLikesModel.find({stationId}).populate("user");
+
